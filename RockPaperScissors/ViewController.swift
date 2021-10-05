@@ -25,22 +25,29 @@ class ViewController: UIViewController {
     var opponentScore = 0
     var playerScore = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        rockButton.tag = 1
+        paperButton.tag = 2
+        scissorsButton.tag = 3
+        
         updateUI(forstate: .start)
         opponentScoreLabel.isHidden = true
         playerScoreLabel.isHidden = true
     }
     
     @IBAction func gestureSelected(_ sender: UIButton) {
-        switch sender.tag {
-        case 1:
+        
+        switch Sign(rawValue: sender.tag) {
+        case .scissors:
             play(userSign: .scissors)
-        case 2:
+        case .rock:
             play(userSign: .rock)
-        case 3:
+        case .paper:
             play(userSign: .paper)
-        default: break
+        case .none:
+            break
         }
         changeToStart()
     }

@@ -8,11 +8,11 @@
 import Foundation
 
 func randomSign() -> Sign {
-    return Sign(rawValue: Int.random(in: 0..<Sign.allCases.count))!
+    return Sign(rawValue: Int.random(in: 1...Sign.allCases.count))!
 }
 
 enum Sign: Int, CaseIterable {
-    case rock
+    case rock = 1
     case paper
     case scissors
     
